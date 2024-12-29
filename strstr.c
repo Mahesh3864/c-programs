@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 char* mystrstr(char *main, char *sub)
 {
@@ -6,16 +7,15 @@ char* mystrstr(char *main, char *sub)
     char *b=sub;
 
     while(1) {
-        if(!a)
+        if(!*a)
             return NULL;
-        if (!b)
+        if (!*b)
             return main;
 
-        else if(*a++ != *b++)
-        {
-            a=++main;
-            b=sub;
-        }
+        if(*a++ == *b++)
+            continue;
+         a=++main;
+         b=sub;
     }
 }
 
